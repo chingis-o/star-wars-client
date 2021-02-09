@@ -1,38 +1,64 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  text-align: left;
+  min-height: calc(100vh - 100px);
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: #2e3440;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+form {
+  display: flex;
+}
+
+#search {
+  height: 3rem;
+  width: 50vw;
+  padding-left: 2rem;
+  border: grey solid 1px;
+  border-radius: 2rem;
+  background: #e5e9f0;
+  font-size: large;
+  outline: none;
+}
+
+#search:hover {
+  box-shadow: whitesmoke 0px 0px 4px;
+  background: white;
+}
+
+#search:focus {
+  box-shadow: whitesmoke 0px 0px 12px;
+  background: white;
+}
+
+.result {
+  width: 50vw;
+  padding-top: 25px;
+  font-size: large;
   color: white;
+  user-select: none;
 }
 
-.App-link {
-  color: #61dafb;
+.result thead {
+  height: 45px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.result tr {
+  height: 40px;
+}
+
+b {
+  text-shadow: whitesmoke 0px 0px 4px;
+}
+
+td {
+  cursor: pointer;
+}
+
+.visible {
+  text-decoration: underline;
 }
