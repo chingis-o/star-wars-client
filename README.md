@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Star Wars Search
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Web Client to access SWAPI (The Star Wars API)
 
 ## Available Scripts
 
