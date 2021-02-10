@@ -10,11 +10,7 @@ type props = {
   searchQuery: string;
 };
 
-const useSearchUpdate = ({
-  setIsSearching,
-  setSearchResult,
-  searchQuery,
-}: props) => {
+const useSearchUpdate = ({ setIsSearching, setSearchResult, searchQuery }: props) => {
   const resources: string[] = useMemo(
     () => ["people", "planets", "films", "species", "vehicles", "starships"],
     []
