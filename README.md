@@ -2,7 +2,7 @@
 
 Web Client to access SWAPI (The Star Wars API)
 
-# Sceenshot
+# Screenshot
 
 ![Alt text](public/screenshot.png?raw=true "Title")
 
