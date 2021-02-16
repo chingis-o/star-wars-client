@@ -1,8 +1,8 @@
-form {
+.searchBar {
   display: flex;
 }
 
-#search {
+.search {
   height: 3rem;
   width: 50vw;
   padding: 1rem 2rem;
@@ -13,12 +13,12 @@ form {
   outline: none;
 }
 
-#search:hover {
+.search:hover {
   box-shadow: whitesmoke 0px 0px 4px;
   background: white;
 }
 
-#search:focus {
+.search:focus {
   box-shadow: whitesmoke 0px 0px 12px;
   background: white;
 }

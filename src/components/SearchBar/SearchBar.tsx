@@ -22,11 +22,11 @@ const SearchBar = ({
     }
   };
   return (
-    <form method="get">
+    <form className="searchBar" method="get">
       <input
         type="search"
         name="search"
-        id="search"
+        className="search"
         autoComplete="off"
         placeholder="Enter your query"
         value={String(searchQuery)}

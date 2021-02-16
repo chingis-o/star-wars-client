@@ -14,11 +14,11 @@
   height: 40px;
 }
 
-b {
+.result b {
   text-shadow: whitesmoke 0px 0px 4px;
 }
 
-td {
+.result td {
   cursor: pointer;
   width: 50%;
   max-width: 50%;
