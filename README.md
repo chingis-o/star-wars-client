@@ -2,9 +2,13 @@
 
 Web Client to access SWAPI (The Star Wars API)
 
-# Sceenshot
+# Screenshot
 
 ![Alt text](public/screenshot.png?raw=true "Title")
+
+# Link
+
+https://star-wars-client.herokuapp.com/
 
 ## Available Scripts
 
