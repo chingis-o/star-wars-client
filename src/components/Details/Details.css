@@ -14,3 +14,12 @@
   text-shadow: white 0 0 3px;
   box-shadow: white 0 0 3px;
 }
+
+.details-list__name {
+  text-transform: capitalize;
+}
+
+.details-list tr:nth-child(2) {
+  text-shadow: white 0 0 4px;
+  font-weight: bold;
+}

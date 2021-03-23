@@ -17,7 +17,7 @@ const Details = ({
     return searchResult[Number(key)];
   };
   return (
-    <>
+    <div className="details-list">
       <button className="return-button" onClick={handleClick}>
         Back
       </button>
@@ -26,14 +26,14 @@ const Details = ({
           if (typeof item[1] !== "object") {
             return (
               <tr key={item[0]}>
-                <td>{item[0]}</td>
-                <td>{item[1]}</td>
+                <td className="details-list__name">{item[0].replace("_", " ")}</td>
+                <td className="details-list__value">{item[1]}</td>
               </tr>
             );
           } else return null;
         }
       )}
-    </>
+    </div>
   );
 };
 

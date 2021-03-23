@@ -20,6 +20,7 @@ function App() {
         searchWord={searchWord}
         setSearchWord={setSearchWord}
         setSearchResult={setSearchResult}
+        setSelected={setSelected}
       />
       <ResultsTable
         selected={selected}
