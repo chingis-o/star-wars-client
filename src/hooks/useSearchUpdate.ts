@@ -27,7 +27,7 @@ const useSearchUpdate = ({ setSearchResult, searchWord }: props) => {
     const getResource = async (
       resource: string,
       searchWord: string
-    ): Promise<resultObject[] | undefined> => {
+    ): Promise<resultObject[] | null | undefined> => {
       try {
         const searchURL = BASE_URL + `${resource}/?search=${searchWord}`;
         const response = await axios.get(searchURL);
