@@ -3,16 +3,21 @@ import TableHeader from "../TableHeader/";
 import SearchResults from "../SearchResults/";
 import Details from "../Details/";
 
-import "./ResultsTable.css"
+import "./ResultsTable.css";
 
 type ResultsTableProps = {
   selected: string | null;
   setSelected: React.Dispatch<React.SetStateAction<string | null>>;
   searchResult: object[];
-  searchQuery: string;
+  searchWord: string;
 };
 
-const ResultsTable = ({ selected, setSelected, searchResult, searchQuery, }: ResultsTableProps) => {
+const ResultsTable = ({
+  selected,
+  setSelected,
+  searchResult,
+  searchWord,
+}: ResultsTableProps) => {
   const isKeyNull = (key: string | null) => key === null;
   const isSearchResultNotZero = (searchResult: object[]) => {
     return searchResult.length > 0;
@@ -22,7 +27,7 @@ const ResultsTable = ({ selected, setSelected, searchResult, searchQuery, }: Res
   };
 
   const handleClick = (
-    e: React.MouseEvent<HTMLTableRowElement, MouseEvent>
+    e: React.MouseEvent<HTMLTableRowElement | HTMLButtonElement, MouseEvent>
   ) => {
     selected
       ? setSelected(null)
@@ -39,7 +44,7 @@ const ResultsTable = ({ selected, setSelected, searchResult, searchQuery, }: Res
         {isKeyNull(selected) ? (
           <SearchResults
             searchResult={searchResult}
-            searchQuery={searchQuery}
+            searchWord={searchWord}
             handleClick={handleClick}
           />
         ) : selectedResultsEntry(searchResult, selected) ? (

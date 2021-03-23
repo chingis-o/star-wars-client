@@ -1,0 +1,16 @@
+.return-button {
+  position: absolute;
+  margin-left: -120px;
+  margin-top: 20px;
+  background: transparent;
+  padding: 7px 25px;
+  color: white;
+  border: white solid 1px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.return-button:hover {
+  text-shadow: white 0 0 3px;
+  box-shadow: white 0 0 3px;
+}

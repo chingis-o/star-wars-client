@@ -1,65 +1,59 @@
-import React, { useEffect, useCallback, useMemo } from "react";
+import React, { useEffect } from "react";
 
 import axios from "axios";
 
 const BASE_URL = "https://swapi.dev/api/";
 
 type props = {
-  setIsSearching: any;
   setSearchResult: React.Dispatch<React.SetStateAction<object[]>>;
-  searchQuery: string;
+  searchWord: string;
 };
 
-const useSearchUpdate = ({ setIsSearching, setSearchResult, searchQuery }: props) => {
-  const resources: string[] = useMemo(
-    () => ["people", "planets", "films", "species", "vehicles", "starships"],
-    []
-  );
+type resultObject = {
+  name: string;
+  [propName: string]: string | string[];
+};
 
-  const setResourceToState = useCallback(
-    (results: object[], resource: string, query: string) => {
-      results.forEach((result: any) => {
-        const name: string = String(result.name.toLowerCase());
-        const isQueryInName: boolean = name.search(query) !== -1;
-        if (isQueryInName) {
-          setSearchResult((searchResult) => [
-            ...searchResult,
-            Object.assign(result, { type: resource }),
-          ]);
-        }
-      });
-    },
-    [setSearchResult]
-  );
-
-  const getResource = useCallback(
-    (resource: string, query: string) => {
-      axios
-        .get(BASE_URL + `${resource}/?search=${query}`)
-        .then((response) => {
-          const results: object[] = response.data.results;
-          if (results.length !== 0) {
-            setResourceToState(results, resource, query);
-          }
-          setIsSearching(false);
-        })
-        .catch(function (error) {
-          console.log(error);
-          setIsSearching(false);
-        });
-    },
-    [setIsSearching, setResourceToState]
-  );
-
+const useSearchUpdate = ({ setSearchResult, searchWord }: props) => {
   useEffect(() => {
-    resources.forEach((resource: string) => {
-      const query: string = searchQuery.toLowerCase().trim();
-      if (query.length >= 3) {
-        setIsSearching(true);
-        getResource(resource, query);
+    const resources = [
+      "people",
+      "planets",
+      "films",
+      "species",
+      "vehicles",
+      "starships",
+    ];
+    const getResource = async (
+      resource: string,
+      searchWord: string
+    ): Promise<resultObject[] | undefined> => {
+      try {
+        const searchURL = BASE_URL + `${resource}/?search=${searchWord}`;
+        const response = await axios.get(searchURL);
+        const results = response.data.results;
+        return !!results.length ? results : null;
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    resources.forEach(async (resource) => {
+      if (searchWord.toLowerCase().trim().length >= 3) {
+        const results = await getResource(resource, searchWord);
+        const searchResult = [];
+        if (!!results) {
+          for (let result of results) {
+            const name = String(result.name.toLowerCase());
+            if (name.search(searchWord) !== -1) {
+              searchResult.push({ ...result, type: resource });
+            }
+          }
+          setSearchResult(searchResult);
+        }
       }
     });
-  }, [searchQuery, getResource, resources, setIsSearching]);
+  }, [searchWord, setSearchResult]);
 };
 
 export default useSearchUpdate;

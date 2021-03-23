@@ -1,17 +1,25 @@
 import React from "react";
 
+import "./searchResults.css";
+
 type SearchResultsProps = {
   searchResult: object[];
-  searchQuery: string;
-  handleClick: (e: React.MouseEvent<HTMLTableRowElement, MouseEvent>) => void;
+  searchWord: string;
+  handleClick: (
+    e: React.MouseEvent<HTMLTableRowElement | HTMLButtonElement, MouseEvent>
+  ) => void;
 };
 
-const SearchResults = ({ searchResult, searchQuery, handleClick, }: SearchResultsProps): JSX.Element => {
+const SearchResults = ({
+  searchResult,
+  searchWord,
+  handleClick,
+}: SearchResultsProps): JSX.Element => {
   return (
     <>
       {searchResult.map((item: any, index: number) => {
         const name: string = item.name;
-        const pattern: string = searchQuery.toLowerCase();
+        const pattern: string = searchWord.toLowerCase();
         const string: string = name.toLowerCase();
         const position: number = string.indexOf(pattern);
         const begin: string = name.substring(0, position);
@@ -24,7 +32,12 @@ const SearchResults = ({ searchResult, searchQuery, handleClick, }: SearchResult
           name.length
         );
         return (
-          <tr key={item.name} onClick={handleClick} id={String(index)}>
+          <tr
+            className="result-row"
+            key={item.name}
+            onClick={handleClick}
+            id={String(index)}
+          >
             <td>
               {begin}
               <b>{highlighted}</b>
