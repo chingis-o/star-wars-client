@@ -5,7 +5,9 @@ import "./Details.css";
 type DetailsProps = {
   selected: string | null;
   searchResult: object[];
-  handleClick: (e: React.MouseEvent<HTMLTableRowElement| HTMLButtonElement, MouseEvent>) => void;
+  handleClick: (
+    e: React.MouseEvent<HTMLTableRowElement | HTMLButtonElement, MouseEvent>
+  ) => void;
 };
 
 const Details = ({
@@ -23,14 +25,14 @@ const Details = ({
       </button>
       {Object.entries(selectedResultsEntry(searchResult, selected)).map(
         (item) => {
-          if (typeof item[1] !== "object") {
-            return (
-              <tr key={item[0]}>
-                <td className="details-list__name">{item[0].replace("_", " ")}</td>
-                <td className="details-list__value">{item[1]}</td>
-              </tr>
-            );
-          } else return null;
+          return typeof item[1] !== "object" ? (
+            <tr key={item[0]}>
+              <td className="details-list__name">
+                {item[0].replace("_", " ")}
+              </td>
+              <td className="details-list__value">{item[1]}</td>
+            </tr>
+          ) : null;
         }
       )}
     </div>
