@@ -1,11 +1,12 @@
 import React from "react";
+import { searchResult } from "../../hooks/useSearchUpdate";
 
 import "./SearchBar.css";
 
 type SearchBarProps = {
   searchWord: string;
   setSearchWord: React.Dispatch<React.SetStateAction<string>>;
-  setSearchResult: React.Dispatch<React.SetStateAction<object[]>>;
+  setSearchResult: React.Dispatch<React.SetStateAction<searchResult[]>>;
   setSelected: React.Dispatch<React.SetStateAction<string | null>>;
 };
 

@@ -10,16 +10,12 @@
   height: 45px;
 }
 
-.result tr {
+.result tbody tr {
+  display: flex;
   height: 40px;
-}
-
-.result b {
-  text-shadow: whitesmoke 0px 0px 4px;
+  width: 100%;
 }
 
 .result td {
   width: 50%;
-  max-width: 50%;
-  overflow-wrap: break-word;
 }
