@@ -8,13 +8,15 @@ Web Client to access SWAPI (The Star Wars API)
 
 # Link
 
-https://star-wars-client.herokuapp.com/
+https://starwars-testapp1.herokuapp.com/
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `yarn start`
+### `yarn` - to install dependencies
+
+### `yarn start` - to start dev local server
 ### `yarn test`
 ### `yarn build`
 ### `yarn eject`
